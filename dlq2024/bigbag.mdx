@@ -1,0 +1,78 @@
+---
+title: "大背包"
+description: "如何设置大背包的素材还有格子数量"
+sidebarTitle: "大背包"
+---
+
+![大背包演示](/images/bagbag.png)
+
+**格子最大数量设置在 mir.ini 文件中设置如下配置即开启最大的物品数量**
+
+```ini
+...省略其他...
+
+[Extensions]
+MaxBagItems=126
+
+...省略其他...
+```
+
+**自定义 UI 的素材部分**
+
+利用 Shift+Ctrl+B 打开自定义 UI 的界面配置器之后复制下述的配置进去即可:
+
+```json
+{
+  "PlaySceneUIConfig": {
+    "Width": 0,
+    "Height": 0,
+    "ItemBagDialogUIConfig": {
+      "DItemBag": {
+        "Lib": "WProgUseX",
+        "Background": 10,
+        "Left": -15,
+        "Top": 15,
+        "AutoSize": true,
+        "LayoutStyle": "doAbsolute"
+      },
+      "DGold": {
+        "Lib": "WProgUseX",
+        "Background": 11,
+        "Pressed": 11,
+        "Left": 31,
+        "Top": 432,
+        "AutoSize": true,
+        "LayoutStyle": "doAbsolute"
+      },
+      "DCloseBag": {
+        "Lib": "WProgUseX",
+        "Background": 20,
+        "Pressed": 21,
+        "Left": 470,
+        "Top": 10,
+        "AutoSize": true,
+        "LayoutStyle": "doAbsolute"
+      },
+      "DGoldLabel": {
+        "Left": 112,
+        "Top": 434
+      },
+      "DItemLabel": {
+        "Left": 212,
+        "Top": 434
+      },
+      "DItemGrid": {
+        "Background": -1,
+        "Left": 32,
+        "Top": 47,
+        "ColCount": 12,
+        "RowCount": 10,
+        "ColWidth": 38,
+        "RowHeight": 38
+      }
+    }
+  }
+}
+```
+
+注意：目前登陆器自带的必备补丁素材包含了大背包的，你如果想替换成你自己的不要修改 Data\\ui\\Prguse.wi 必备的补丁，而是你把 WProgUseX 换成 WProgUse 之后就读取 Data\\Prguse.wil 下的了，你需要改非登陆器自带的补丁.

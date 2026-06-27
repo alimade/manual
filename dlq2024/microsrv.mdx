@@ -1,0 +1,51 @@
+---
+title: "微端配置"
+description: "新内核微端配置手册，基于 HTTP 无状态下载"
+---
+
+## IIS 配置
+
+## 目录配置
+
+![IMG](/images/image-2.png)
+
+<Note>
+  只需要创建一个 Site 并指向你的微端的客户端文件，客户端的三个主要目录：
+</Note>
+
+- Data\\
+- Map\\
+- Wav\\
+
+## **后缀设置**
+
+![IMG](/images/image-5.png)
+
+<Note>
+  双击进入 "MIME Types" 的设置.
+</Note>
+
+![IMG](/images/image-6.png)
+
+<Note>
+  设置下述几种后缀文件的 "MIME Type" 为 “application/octet-stream“ (需要按上述添加四遍)
+</Note>
+
+- wil
+- wix
+- map
+- lst
+
+# **客户端读取**
+
+![IMG](/images/image-7.png)
+
+<Note>
+直接设置你的 IIS 的服务器的根目录地址就行了，如果是外网就填写你的公网 IP 或域名.
+</Note>
+
+# **错误诊断日志**
+
+<Note>
+如果读取出现错误可以打开客户端的 !debug.txt 日志来跟踪查看具体错误.
+</Note>

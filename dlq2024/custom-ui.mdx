@@ -1,0 +1,727 @@
+---
+title: "自定义界面"
+description: "万能登陆器自定义界面配置指南"
+---
+
+# **使用预览**
+
+![Image](/images/image-1.png)
+
+当使用 “2.5.0-rc.3” 版本及以上的万能登陆器之后既可以登陆游戏使用快捷键 “Shift + Ctrl + B” 呼出右边侧边栏的简易界面编辑工具，该工具的配置更改之后既可以在场景中看到效果（你可以点击 “刷新” 或者 “Ctrl + S" 快捷键进行保持）
+
+**不同分辨率下的加载规则**
+
+- 800x600 - 直接加载 Data\\uiConfig.json
+- 1024x768 - 直接加载 Data\\uiConfig1024.json
+- 1280x800 - 直接加载 Data\\uiConfig1280.json
+- 更大分辨率暂不支持
+
+> 注意：上述的配置刚开始不需要存在，可以在打开简易编辑器的时候再编辑保存会自动生成！！！
+
+# **配置大纲**
+
+## **场景类型**
+
+- Lib - 图库
+- Width - 宽度 - 场景的绝对大小，如果场景大小和窗口大小不一致则会产生偏移影响 doAboslute 的子元素
+- Height - 高度
+- Background - 场景背景索引
+- LayoutStyle
+  - doAutoCenter - 水平垂直居中
+  - doAbsolute - 靠左上绝对坐标
+
+## **窗口类型**
+
+- Lib - 图库
+- Background - 暂时未使用，使用 "-1" 占位
+- AutoSize
+  - True - 使用系统内置的大小，忽略上述的宽度和高度
+  - False - 使用上述自定义的宽度和高度作为大小
+- LayoutStyle
+  -  doAbsolute - 绝对坐标，根据场景的大小和偏移来放置
+  - doAutoCenter - 根据父节点的宽高来进行自动水平垂直居中
+
+## **文本框类型**
+
+- Width - 宽度
+- Height - 高度
+- Left - 坐标 X
+- Top - 坐标 Y
+- AutoSize
+  - True - 使用系统内置的大小，忽略上述的宽度和高度
+  - False - 使用上述自定义的宽度和高度作为大小
+- LayoutStyle
+  - doAbsolute - 绝对坐标，根据场景的大小和偏移来放置
+  - doAutoCenter - 根据父节点的宽高来进行自动水平垂直居中
+
+## **标签类型**
+
+- Left - 坐标 X
+- Top - 坐标 Y
+- LayoutStyle
+  - doAbsolute - 绝对坐标，根据场景的大小和偏移来放置
+  - doAutoCenter - 根据父节点的宽高来进行自动水平居中 - **(暂不支持垂直居中)**
+
+## **按钮类型**
+
+- Lib - 图库
+- Background - 目前暂未使用
+- Pressed - 按钮按下的图库索引
+- Width - 宽度
+- Height - 高度
+- Left - 坐标 X
+- Top - 坐标 Y
+- AutoSize - 同上
+- LayoutStyle - 同上
+
+# **图库范围**
+
+- WUISet1 - Data\\uiSet1.wil
+- WUISet2 - Data\\uiSet2.wil
+- WUISet3 - Data\\uiSet3.wil
+- WProgUse - Data\\Prguse.wil
+- WProgUse2 - Data\\Prguse2.wil
+- WProgUse3 - Data\\Prguse3.wil
+- WProgUseX - Data\\ui\\Prguse.wil （未来会被弃用，不再推荐使用）
+
+# **界面配置**
+
+主要分为四个场景，每个场景的弹出框需要单独分开设置确保灵活性，每个场景下的具体界面如下述所示：
+
+## **登录场景**
+
+```json expandable
+{
+  "LoginSceneUIConfig": { 场景类型
+    "Lib": "WUISet1",
+    "Background": 0,
+    "Width": 800,
+    "Height": 600,
+    "Left": 0,
+    "Top": 0,
+    "LayoutStyle": "doAutoCenter",
+    "LoginUIConfig": { 查看下述的登陆界面 }
+    "RegisterUIConfig": { 查看下述的注册界面 }
+    "PwdChangeUIConfig": { 查看下述的密码修改界面 }
+    "MsgDialogBigHorizontalUIConfig": { 弹出框的面板设置 }
+  }
+}
+```
+
+### **登录界面**
+
+```json expandable
+"LoginUIConfig": {
+  "DLogIn": { 窗口类型
+    "Lib": "WProgUseX",
+    "Background": -1,
+    "AutoSize": true,
+    "LayoutStyle": "doAutoCenter"
+  },
+  "DLoginNew": { 按钮类型
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 61,
+    "Left": 24,
+    "Top": 207,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DLoginOk": { 按钮类型
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 62,
+    "Left": 171,
+    "Top": 165,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DLoginClose": { 按钮类型
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 64,
+    "Left": 252,
+    "Top": 28,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DLoginChgPw": { 按钮类型
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 53,
+    "Left": 129,
+    "Top": 207,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdId": { 文本框类型
+    "Width": 130,
+    "Height": 16,
+    "Left": 145,
+    "Top": 569,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdPasswd": { 文本框类型
+    "Width": 130,
+    "Height": 16,
+    "Left": 330,
+    "Top": 569,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  }
+},
+```
+
+### **注册界面**
+
+```json expandable
+"RegisterUIConfig": {
+  "NewAccountTitle": { 无类型 - 主要控制强制用户信息修改的标题
+    "Left": 362,
+    "Top": 121,
+    "LayoutStyle": "doAbsolute"
+  },
+  "NAHelps": { 控制注册文字提醒的坐标
+    "Left": 475,
+    "Top": 188,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DNewAccount": { 按钮类型
+    "Lib": "WProgUse",
+    "Background": 63,
+    "AutoSize": true,
+    "LayoutStyle": "doAutoCenter"
+  },
+  "DNewAccountOk": {
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 62,
+    "Left": 160,
+    "Top": 417,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DNewAccountClose": {
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 64,
+    "Left": 587,
+    "Top": 33,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DNewAccountCancel": {
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 52,
+    "Left": 448,
+    "Top": 419,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdNewId": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 180,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdNewPasswd": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 201,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdConfirm": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 222,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdYourName": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 251,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdSSNo": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 271,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdBirthDay": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 291,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdQuiz1": {
+    "Width": 163,
+    "Height": 16,
+    "Left": 240,
+    "Top": 320,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdAnswer1": {
+    "Width": 163,
+    "Height": 16,
+    "Left": 240,
+    "Top": 340,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdQuiz2": {
+    "Width": 163,
+    "Height": 16,
+    "Left": 240,
+    "Top": 361,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdAnswer2": {
+    "Width": 163,
+    "Height": 16,
+    "Left": 240,
+    "Top": 381,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdPhone": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 411,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdMobPhone": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 434,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdEMail": {
+    "Width": 116,
+    "Height": 16,
+    "Left": 240,
+    "Top": 432,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  }
+},
+```
+
+### **密码修改界面**
+
+```json expandable
+"PwdChangeUIConfig": {
+  "DChgPw": {
+    "Lib": "WProgUse",
+    "Background": 50,
+    "AutoSize": true,
+    "LayoutStyle": "doAutoCenter"
+  },
+  "DChgpwOk": {
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 62,
+    "Left": 181,
+    "Top": 253,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DChgpwCancel": {
+    "Lib": "WProgUse",
+    "Background": -1,
+    "Pressed": 52,
+    "Left": 276,
+    "Top": 252,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdChgId": {
+    "Width": 137,
+    "Height": 16,
+    "Left": 431,
+    "Top": 267,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdChgCurrentpw": {
+    "Width": 137,
+    "Height": 16,
+    "Left": 431,
+    "Top": 299,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdChgNewPw": {
+    "Width": 137,
+    "Height": 16,
+    "Left": 431,
+    "Top": 326,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdChgRepeat": {
+    "Width": 137,
+    "Height": 16,
+    "Left": 431,
+    "Top": 358,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  }
+}
+```
+
+## **角色场景**
+
+```json expandable
+"ChrSceneUIConfig": {
+  "Lib": "WUISet1",
+  "Background": 55,
+  "Width": 800,
+  "Height": 600,
+  "LayoutStyle": "doAutoCenter",
+  "ServerName": { 标签类型：服务器名称 
+       "Left": 2,
+       "Top": 8,
+       "LayoutStyle": "doAutoCenter"
+   },
+  "Char1Name": { 标签类型：角色一的名称
+       "Left": 117,
+       "Top": 494
+   },
+  "Char1Level": { 标签类型：角色一的等级
+       "Left": 117,
+       "Top": 523
+   },
+  "Char1Job": { 标签类型：角色一的职业
+       "Left": 117,
+       "Top": 553
+   },
+  "Char2Name": { 如上含义相同
+       "Left": 671,
+       "Top": 494
+   },
+  "Char2Level": { 如上含义相同
+       "Left": 671,
+       "Top": 523
+   },
+  "Char2Job": { 如上含义相同
+       "Left": 671,
+       "Top": 553
+   },
+  "CharSelectUIConfig": { 角色选择基本配置 }
+  "CharCreateLeftUIConfig": { 创建角色（左）配置 }
+  "CharCreateRightUIConfig": { 创建角色（右）配置 }
+}
+```
+
+### **角色选择**
+
+```json expandable
+"CharSelectUIConfig": {
+  "DSelectChr": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "AutoSize": true,
+    "LayoutStyle": "doAutoCenter"
+  },
+  "DscSelect1": {
+    "Lib": "WUISet1",
+    "Background": 62,
+    "Pressed": 63,
+    "Left": 170,
+    "Top": 430,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DscSelect2": {
+    "Lib": "WUISet1",
+    "Background": 62,
+    "Pressed": 63,
+    "Left": 550,
+    "Top": 430,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DscStart": {
+    "Lib": "WUISet1",
+    "Background": 60,
+    "Pressed": 61,
+    "Left": 370,
+    "Top": 480,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DscNewChr": {
+    "Lib": "WUISet1",
+    "Background": 64,
+    "Pressed": 65,
+    "Left": 380,
+    "Top": 510,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DscEraseChr": {
+    "Lib": "WUISet1",
+    "Background": 68,
+    "Pressed": 69,
+    "Left": 395,
+    "Top": 538,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DscCredits": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Pressed": -1,
+    "Left": 395,
+    "Top": 535,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DscExit": {
+    "Lib": "WUISet1",
+    "Background": 70,
+    "Pressed": 71,
+    "Left": 393,
+    "Top": 560,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  }
+},
+```
+
+### **角色创建（左）**
+
+```json expandable
+"CharCreateLeftUIConfig": {
+  "DCreateChr": {
+    "Lib": "WUISet1",
+    "Background": 56,
+    "AutoSize": true,
+    "Left": 60,
+    "Top": 30,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccWarrior": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 75,
+    "Pressed": 75,
+    "AutoSize": true,
+    "Left": 59,
+    "Top": 115,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccWizzard": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 76,
+    "Pressed": 76,
+    "Left": 123,
+    "Top": 115,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccMonk": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 77,
+    "Pressed": 77,
+    "Left": 187,
+    "Top": 115,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccMale": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 80,
+    "Pressed": 80,
+    "Left": 90,
+    "Top": 201,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccFemale": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 81,
+    "Pressed": 81,
+    "Left": 156,
+    "Top": 201,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccOk": {
+    "Lib": "WUISet1",
+    "Background": 72,
+    "Pressed": 72,
+    "PressedMarginLeft": 1,
+    "PressedMarginTop": 1,
+    "Left": 118,
+    "Top": 370,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccClose": {
+    "Lib": "WUISet1",
+    "Background": 112,
+    "Pressed": 113,
+    "Left": 242,
+    "Top": 18,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdChrName": {
+    "Width": 138,
+    "Height": 29,
+    "Left": 140,
+    "Top": 318,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  }
+},
+```
+
+### **角色创建（右）**
+
+```json expandable
+"CharCreateRightUIConfig": {
+  "DCreateChr": {
+    "Lib": "WUISet1",
+    "Background": 56,
+    "AutoSize": true,
+    "Left": 470,
+    "Top": 30,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccWarrior": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 75,
+    "Pressed": 75,
+    "AutoSize": true,
+    "Left": 59,
+    "Top": 115,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccWizzard": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 76,
+    "Pressed": 76,
+    "Left": 123,
+    "Top": 115,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccMonk": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 77,
+    "Pressed": 77,
+    "Left": 187,
+    "Top": 115,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccMale": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 80,
+    "Pressed": 80,
+    "Left": 90,
+    "Top": 201,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccFemale": {
+    "Lib": "WUISet1",
+    "Background": -1,
+    "Selected": 81,
+    "Pressed": 81,
+    "Left": 156,
+    "Top": 201,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccOk": {
+    "Lib": "WUISet1",
+    "Background": 72,
+    "Pressed": 72,
+    "PressedMarginLeft": 1,
+    "PressedMarginTop": 1,
+    "Left": 110,
+    "Top": 370,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "DccClose": {
+    "Lib": "WUISet1",
+    "Background": 112,
+    "Pressed": 113,
+    "Left": 242,
+    "Top": 18,
+    "AutoSize": true,
+    "LayoutStyle": "doAbsolute"
+  },
+  "EdChrName": {
+    "Width": 138,
+    "Height": 29,
+    "Left": 550,
+    "Top": 318,
+    "AutoSize": false,
+    "LayoutStyle": "doAbsolute"
+  }
+}   
+```
+
+## **公告场景**
+
+```json expandable
+"NoticeSceneUIConfig": {
+  "MsgDialogBigVerticalUIConfig": {
+    "MsgLeft": 1,
+    "MsgTop": 60,
+    "DMsgDlg": {
+      "Lib": "WUISet1",
+      "Background": 140,
+      "AutoSize": true,
+      "LayoutStyle": "doAutoCenter"
+    },
+    "DMsgDlgOk": {
+      "Lib": "WUISet1",
+      "Background": 114,
+      "Pressed": 115,
+      "Left": 115,
+      "Top": 356,
+      "AutoSize": true,
+      "LayoutStyle": "doAbsolute"
+    }
+  }
+}
+```
+
+## **游戏场景**
+
+待添加... (大背包界面相关请查阅大背包文档)

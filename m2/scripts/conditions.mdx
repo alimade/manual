@@ -1,0 +1,149 @@
+---
+title: "条件指令"
+description: "条件指令主要给到 #IF 使用来判断是否满足要求"
+mode: "wide"
+---
+
+| 指令                                     | 描述                                                          |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `CASTLECHANGEDAY > 7`                  | 检查沙巴克占领天数                                                   |
+| `CASTLEWARAY > 3`                      | 检查上次攻城到现在的天数                                                |
+| `check [100] 1`                        | 检测变量值100为1                                                  |
+| `CHECKACCOUNTIPLIST AccountIPList.txt` | 检测您的登录帐号与指定IP匹配                                             |
+| `CHECKACCOUNTLIST 帐号.txt`              | 检查人物登录帐号                                                    |
+| `checkbaggage`                         | 检测背包是否已满，满时为1否则为0                                           |
+| `CHECKBAGSIZE 5`                       | 检测身上有5个空格                                                   |
+| `CHECKBONUSPOINT`                      | 检查人物附加属性点数                                                  |
+| `CHECKCASTLEDOOR 损坏`                   | 检测城门损坏                                                      |
+| `checkcastlegold ? 100000`             | 检测城内资金不足，不要乱用钱                                              |
+| `checkcastlewar 2`                     | 检测第三个城堡正在攻城                                                 |
+| `checknamelist ..\\会员.txt`             | 用于检测玩家是否为会员                                                 |
+| `CheckContainsText 字符 字符串检查`           | 检查字符串是否包涵在另外一个字符串中                                          |
+| `CheckContribution > 1000`             | 检测行会贡献度是否大于1000                                             |
+| `CHECKCREDITPOINT = 50`                | 您声望点等于50级                                                   |
+| `CHECKDC > 29 < 41`                    | 你的攻击力大于30-40                                                |
+| `checkdura 矿石 50`                      | 检测背包中是否有耐久值≥50的矿石                                           |
+| `checkduraeva 物品名 数值`                  | 同上，只是测试有品质的物品的品质                                            |
+| `CHECKEXP`                             | 检查人物的经验值是否等于指定值                                             |
+| `CHECKGAMEDIAMOND`                     | 检查金刚石数量                                                     |
+| `CHECKGAMEGIRD`                        | 检查灵符数量                                                      |
+| `CHECKGAMEGOLD`                        | 检查当前人物身上有多少游戏币                                              |
+| `CHECKGAMEPOINT`                       | 用于配合泡点功能，检查当前人物身上有多少点数                                      |
+| `CHECKGLORYPOINT`                      | 检测玩家荣誉点                                                     |
+| `CHECKGOLD`                            | 检测金币数量                                                      |
+| `CHECKGROUPCLASS`                      | 检测玩家所属行会等级                                                  |
+| `CHECKGROUPCOUNT`                      | 检查组队人数                                                      |
+| `CHECKGUILDAURAEPOINT`                 | 检测行会行会人气度                                                   |
+| `CHECKGUILDBUILDPOINT`                 | 检测行会建筑度                                                     |
+| `CHECKGUILDFLOURISHPOINT`              | 检测行会繁荣度                                                     |
+| `CHECKGUILDLIST`                       | 检查行会是否在列表中                                                  |
+| `CHECKGUILDSTABILITYPOINT`             | 检测行会安定度                                                     |
+| `CHECKGUILDCHIEFITEMCOUNT 物品名`         | 该物品数量返回到P9里                                                 |
+| `CHECKHEROJOB`                         | 检测英雄职业                                                      |
+| `CHECKHEROLEVEL`                       | 检查英雄当前等级                                                    |
+| `CHECKHEROLOYAL`                       | 检测英雄当前的忠诚度                                                  |
+| `CHECKHEROONLINE`                      | 检测指定玩家是否在线                                                  |
+| `CHECKHEROPKPOINT`                     | 检测英雄的PK值                                                    |
+| `CHECKHITMONNAME`                      | 检查正在被自己攻击的怪物的名字                                             |
+| `CHECKHP`                              | 用来检查人物HP值的上限及下限值                                            |
+| `CHECKHUM 地图名 数值`                      | 同上，测试这个地图的人数                                                |
+| `CHECKHUMBAG`                          | 检测指定人物背包空格数量                                                |
+| `CHECKINMAPRANGE`                      | 可以检查一个坐标范围内怪物数量                                             |
+| `CHECKIPLIST`                          | 检查人物登录IP                                                    |
+| `CHECKISMASTER`                        | 检测玩家是否为GM（管理员）                                              |
+| `CHECKISSAVEHERO`                      | 检测当前人物是否为英雄                                                 |
+| `CHECKITEM 物品 数值`                      | 测试拥用物品的数量                                                   |
+| `CHECKITEMADDVALUE`                    | 获取物品的附加属性值                                                  |
+| `CHECKITEMLEVEL`                       | 检测物品的等级                                                     |
+| `CHECKITEMSTATE`                       | 检查装备绑定状态                                                    |
+| `CHECKITEMTYPE`                        | 用来检查人物身上戴物品类型                                               |
+| `CHECKITEMW`                           | 检测当前人物是否佩带指定物品                                              |
+| `CHECKJOB`                             | 测试职业                                                        |
+| `CHECKLEVEL`                           | 检测人物等级                                                      |
+| `CHECKLEVELEX`                         | 检查玩家等级                                                      |
+| `CHECKLISTCOUNT`                       | 检测玩家背包中指定物品的数量是否满足条件                                        |
+| `CHECKLUCKYPOINT`                      | 检测幸运值                                                       |
+| `CHECKMAGICLVL`                        | 检测玩家技能等级的命令                                                 |
+| `CHECKMAGICNAME`                       | 检查人物是否学习了某项魔法                                               |
+| `CHECKMAP`                             | 检测地图怪物数量                                                    |
+| `CHECKMAPHUMANCOUNT`                   | 检查一个地图内的人物数量                                                |
+| `CHECKMAPMOBCOUNT`                     | 检测指定地图怪物数量                                                  |
+| `CHECKMAPMONCOUNT`                     | 检测指定地图怪物数量                                                  |
+| `CHECKMAPNAME`                         | 检查当前人物是否在此地图                                                |
+| `CHECKMAPSAMEMONCOUNT`                 | 检测地图中某种怪物的数量                                                |
+| `CHECKMARRY`                           | 检测当前对话人物是否已结婚                                               |
+| `CHECKMARRYCOUNT`                      | 检查当前对话人物是否已结婚                                               |
+| `CHECKMASTER`                          | 检测玩家是否拜师                                                    |
+| `CHECKMC`                              | 查人物魔法力的上限及下限值                                               |
+| `CHECKMEMBERLEVEL`                     | 可以检查人物的会员等级                                                 |
+| `CHECKMEMBERTYPE`                      | 可以检查人物的会员类型                                                 |
+| `CHECKMONMAP`                          | 检查一个地图内的怪物数量                                                |
+| `CHECKMP`                              | 检查人物MP值的上限及下限值                                              |
+| `CHECKNAMEDATELIST`                    | 检测玩家会员状态                                                    |
+| `CHECKNAMEIPLIST`                      | 可以检查登录帐号与IP是否匹配                                             |
+| `CHECKNAMELIST`                        | 检测当前角色名称是否存在于指定文件列表中                                        |
+| `CHECKNAMELISTPOSITION`                | 检查人物在列表中的位置                                                 |
+| `CHECKOFFLINE`                         | 检测人物是否是离线挂机                                                 |
+| `CHECKOFGUILD`                         | 检查行会名称                                                      |
+| `CHECKONLINE`                          | 检查玩家是否在线                                                    |
+| `CHECKONLINEPLAYCOUNT`                 | 检查当前在线人物数                                                   |
+| `CHECKOPEN`                            | 检查函数或条件是否满足特定状态（如开启、关闭等）                                    |
+| `CHECKPAYMENT`                         | 检查人物是否付费                                                    |
+| `CHECKPKPOINT`                         | 检测人物的PK值                                                    |
+| `CHECKPOSEDIR`                         | 可以检查对面人物站的位置性别（要求面对面）                                       |
+| `CHECKPOSEGENDER`                      | 可以检查对面人物的性别（不要求面对面）                                         |
+| `CHECKPOSEISMASTER`                    | 检测对面人物是否为其他玩家的师父                                            |
+| `CHECKPOSELEVEL`                       | 可以检查对面人物的等级（不要求面对面）                                         |
+| `CHECKPOSEMARRY`                       | 用于检测当前对话对象（即玩家对面人物）是否已结婚                                    |
+| `CHECKPOSEMASTER`                      | 前人物是否为对面人物的徒弟的命令                                            |
+| `CHECKRANDOMNO`                        | 随机输入验证码                                                     |
+| `CHECKRANGEHUMCOUNT`                   | 检测指定范围内人物数量                                                 |
+| `CHECKRANGEMONCOUNT`                   | 可以检查一个坐标范围内怪物数量                                             |
+| `CHECKRANGEMONCOUNTEX`                 | 检查指定地图的指定坐标是否有指定的怪物                                         |
+| `CHECKRENEWLEVEL`                      | 检查人物的转生等级                                                   |
+| `CHECKSC`                              | 用来检查人物道术的上限及下限值                                             |
+| `CHECKSERVERNAME`                      | 检测当前服务器名称                                                   |
+| `CHECKSKILL`                           | 检查人物技能                                                      |
+| `CHECKSLAVECOUNT`                      | 可以检查玩家所带宠物的数量                                               |
+| `CHECKSLAVEINRANGE`                    | 检测自己和宝宝之间的距离                                                |
+| `CHECKSLAVELEVEL`                      | 检查宝宝的等级                                                     |
+| `CHECKSLAVENAME`                       | 检测人物宝宝名字                                                    |
+| `CHECKTASKCOUN`                        | 检测当前人物的任务数量                                                 |
+| `CHECKUNIT`                            | 检查函数或条件是否满足特定要求                                             |
+| `CHECKUSEITEM`                         | 检查人物身上指定位置是否戴物品                                             |
+| `CHECKUSERDATE`                        | 检查会员时间                                                      |
+| `CHECKVAR`                             | 检测自定义变量值的命令                                                 |
+| `COMPARETEXT`                          | 检测当前人物是否佩带指定物品                                              |
+| `DAYOFWEEK`                            | 检测当前星期几                                                     |
+| `DAYTIME`                              | 用于检测一天不同时段的指令 SUNRAISE：日出时段 DAY：白天时段 SUNSET：日落时段 NIGHT：夜晚时段 |
+| `EQUAL`                                | 用于比较变量与数值是否相等的条件判断指令                                        |
+| `FINDMAPPATH <$MAP> 29 23 58 43`       | 魔王领相关 检测地图某坐标是否有怪物                                          |
+| `GENDER`                               | 检测职业                                                        |
+| `HAVEGUILD`                            | 可以检查玩家是否加入行会                                                |
+| `HAVEHERO`                             | 检测玩家是否拥有英雄                                                  |
+| `HAVEMASTER`                           | 检测是否有师傅                                                     |
+| `HOUR`                                 | 按小时运行                                                       |
+| `INSAFEZONE`                           | 检测在安全区                                                      |
+| `ISADMIN`                              | 检查人物是否为管理员                                                  |
+| `ISATTACKGUILD`                        | 检测玩家是否为行会攻击模式                                               |
+| `ISCASTLEGUILD`                        | 可以检查玩家是否为沙城成员                                               |
+| `ISCASTLEMASTER`                       | 可以检查玩家是否为沙城老大                                               |
+| `ISDEFENSEGUILD`                       | 检测玩家是否属于守城方联盟行会                                             |
+| `ISDUPMODE`                            | 检查人物是否于其他人物重叠                                               |
+| `ISGROUPMASTER`                        | 检查是否为组长                                                     |
+| `ISGUILDMASTER`                        | 可以检查玩家是否为行会老大                                               |
+| `ISHIGH`                               | 检查在线最高攻击，魔法，道术，防御，PK值                                       |
+| `ISLOCKPASSWORD`                       | 检测当前人物仓库是否解锁                                                |
+| `ISLOCKSTORAGE`                        | 检测当前人物仓库是否解锁                                                |
+| `ISNEWHUMAN`                           | 检查玩家是否为新人                                                   |
+| `ISONMAP`                              | 检查是否在某地图                                                    |
+| `LARGE`                                | 如果“变量 \> 数值”                                                |
+| `MAPHUMISSAMEGUILD`                    | 检查当前地图中的人物是否属于同一行会                                          |
+| `MIN`                                  | 按分运行                                                        |
+| `OFFLINEPLAYERCOUNT`                   | 检查当前离线玩家数量                                                  |
+| `ONLINELONGMIN`                        | 检查人物在线时间长度                                                  |
+| `PASSWORDERRORCOUNT`                   | 检测当前人物输入仓库密码错误次数                                            |
+| `POSEHAVEMASTER`                       | 检查自己是不是别人的徒弟                                                |
+| `RANDOM 数值`                            | 当数值=随机数时则为1否则为0                                             |
+| `REPAIRALL`                            | 该命令是检测命令，会自动扣除金币                                            |
+| `SMALL 变量 数值`                          | 如果“变量 \< 数值”则为1否则为0                                         |

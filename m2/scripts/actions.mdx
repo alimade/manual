@@ -1,0 +1,227 @@
+---
+title: "动作指令"
+description: "动作指令主要给到 #ACT 使用来进行直接执行"
+mode: "wide"
+---
+
+
+
+| 指令 | 描述 |
+|------|------|
+| `ADDACCOUNTLIST` | 增加人物帐号在列表中 |
+| `ADDATTACKSABUKALL` | 功能:所有行会在当晚同时攻城 |
+| `ADDBATCH` | 先设定每一张地图停留的时间，再把地图列表添加一下，人物会从第一张地图开始一张一张移动到最后一张 |
+| `ADDGUILDLIST` | 将人物行会名加入列表 |
+| `ADDGUILDMEMBER` | 加入个指定的行会 |
+| `ADDIPLIST` | 增加人物IP在列表中 |
+| `ADDNAMEDATELIST` | 用于添加会员时间的命令 |
+| `ADDNAMELIST` | 增加人物IP在列表中 |
+| `ADDRANDOMMAPGATE` | 用于在游戏地图中随机放置传送门或类似的功能 |
+| `ADDSKILL` | 脚本增加技能 |
+| `ADDTEXTLIST` | 从指定文件中删除字符串和从指定文件中增加字符串 |
+| `ADDUSERDATE` | 加入会员人物及时间 |
+| `AUTOADDGAMEGOLD` | 调整人物游戏币及根据时间自动增减游戏币（可用来做会员时间用） |
+| `AUTOSUBGAMEGOLD` | 设置自动增加游戏币 加 START 减 STOP |
+| `BATCHDELAY` | (暂停时间) |
+| `BATCHMOVE` | 开始从第一个步进地图移动到最后一个步进地图(这里是6) |
+| `BONUSPOINT` | 调整属性点数 |
+| `BREAK` | 结束命令 |
+| `BREAKTIMERECALL` | 清除延时移动 |
+| `CALCVAR` | 控制自定义变量增加、减少 |
+| `CHANGEDRESSEFFECT` | 改变人物衣服翅膀效果 |
+| `CHANGEEXP` | 调整人物经验点数 |
+| `CHANGEGENDER` | 更换性别 |
+| `CHANGEHEROEXP` | 调整英雄的经验值 |
+| `CHANGEHEROJOB` | 调整英雄职业 |
+| `CHANGEHEROLEVEL` | 调整人物英雄等级 |
+| `CHANGEHEROLOYAL` | 调整英雄的忠诚度 |
+| `CHANGEHEROPKPOINT` | 调整英雄PK值 |
+| `CHANGEHUMABILITY` | 调整人物属性 |
+| `CHANGEJOB` | 转换职业 |
+| `CHANGELEVEL` | 调整人物等级 |
+| `CHANGEMODE` | 设置人物当前模式（1管理模式、2无敌模式、3隐身模式） |
+| `CHANGEMODEEX` | 改变人物当前模式(无敌,隐身,生命,魔法,攻击力,道术力,魔法力,攻击速度,禁止攻击) |
+| `CHANGENAMECOLOR` | 更改人物颜色 |
+| `CHANGEPERMISSION` | 设置人物当前权限（0-10） |
+| `CHANGEPKPOINT` | 调整人物PK点数 |
+| `CHANGEXP` | 调整指定角色的经验值 |
+| `CLEARCODELIST` | 用于清除特定列表内容的命令 |
+| `CLEARDELAYGOTO` | 取消延时执行脚本 |
+| `CLEARHEROSKILL` | 删除英雄当前拥有的所有技能 |
+| `CLEARITEMMAP` | 清理地图上指定名字的物品 |
+| `CLEARLIST` | 清除指定列表中的所有内容 |
+| `CLEARMAPMON` | 用于清除指定地图里的怪物 |
+| `CLEARNAMELIST` | 清除列表内容 |
+| `CLEARNEEDITEMS` | 将当前人物背包及仓库里,所有物品的NEED值与参数N相同的物品清除掉 |
+| `CLEARPASSWORD` | 清除人物的仓库密码 |
+| `CLEARSKILL` | 删除所有技能 |
+| `CLOSE` | 关闭对话框 |
+| `CLOSEBIGDIALOGBOX` | 关闭大对话框模式 |
+| `CLOSEDRINK` | 关闭对话框 |
+| `CREATEHERO` | 创建英雄 |
+| `CREDITPOINT` | 调整人物声望点 |
+| `DEC` | 两个数字相减 |
+| `DELACCOUNTLIST` | 删除人物帐号在列表中 |
+| `DELAYCALL` | 延时执行指定的脚本 |
+| `DELETEHERO` | 删除英雄 |
+| `DELGUILDLIST` | 删除列表行会名 |
+| `DELGUILDMEMBER` | 删除行会成员 |
+| `DELIPLIST` | 删除人物IP在列表中 |
+| `DELMARRY` | 清除结婚信息 |
+| `DELMASTER` | 移除当前角色的师父绑定，解除师徒关系 |
+| `DELNAMEDATELIST` | 删除会员 |
+| `DELNAMELIST` | 删除人物名在列表中 |
+| `DELNOJOBSKILL` | 删除非本职业的所有技能 |
+| `DELRANDOMMAPGATE` | 删除自定义地图连接的命令 |
+| `DELSKILL` | 删除指定技能 |
+| `DELTEXTLIST` | 从指定文件中删除字符串和从指定文件中增加字符串 |
+| `DELUSERDATE` | 删除会员人物及时间 |
+| `DVI` | 除法运算 |
+| `ENDQUEST` | 用于结束当前任务流程 |
+| `EXCHANGEMAP` | 与指定地图里的人交换位置 |
+| `EXEACTION` | 执行系统预定义命令的指令 |
+| `GAMEDIAMOND` | 调整金刚石数量 |
+| `GAMEGIRD` | 调整灵符数量 |
+| `GAMEGOLD` | 调整人物游戏币 |
+| `GAMEPOINT` | 调整人物游戏点 |
+| `GETHERO` | 召唤英雄 |
+| `GETMARRY` | 触发结婚功能 |
+| `GETMASTER` | 获取某种物品或技能，通常是通过完成任务、击败特定的怪物、参与游戏活动或使用游戏内货币（如金币或元宝）来购买的 |
+| `GETPOSENAME` | 取对面角色人物名到变量 |
+| `GETRANDOMMAPGATE` | 用于删除连接时使用 |
+| `GETRANDOMNAME` | 取对面角色人物名到变量 |
+| `GETRANDOMTEXT` | 从文件中随机获取一行字符串 |
+| `GETUSERITEMNAME` | 取指定位置的装备名字 |
+| `GIVE` | 给予玩家物品命令 |
+| `GIVESTATEITEM` | 给予带绑定状态装备。主要方便设置不能配带的装备绑定状态 |
+| `GMEXECUTE` | 用于调用GM命令的脚本指令，可执行游戏内所有GM权限操作，包括角色控制、地图管理、怪物生成等 |
+| `GOHOME` | 移动到回城点 |
+| `GOLDCOUNT` | 金币数量变量 |
+| `GOQUEST` | 开始探索 |
+| `GOTO` | 跳转到指定段 |
+| `GROUPMAPMOVE` | 编组地图传送 |
+| `GROUPMOVE` | 编组地图随机传送 |
+| `GUILDAURAEPOINT` | 修改行会人气度 |
+| `GUILDBUILDPOINT` | 修改行会建筑度 |
+| `GUILDCHIEFITEMCOUNT` | 检查玩家是否拥有指定数量的行会首领物品 |
+| `GUILDFLOURISHPOINT` | 行会建筑度 |
+| `GUILDMAPMOVE` | 行会地图传送 |
+| `GUILDMOVE` | 行会地图随机传送 |
+| `GUILDNOTICEMSG` | 发送自定义颜色的文字信息 |
+| `GUILDRECALL` | 行会合一 |
+| `GUILDSTABILITYPOINT` | 修改行会安定度 |
+| `HAIRRNDCOL` | 随机更改角色发型颜色 |
+| `HAIRSTYLE` | 更改头发类型 |
+| `HCALL` | 指定人物触发字段 HCALL 人物名称 触发字段 |
+| `HORSECALL` | 召唤坐骑的GM命令 通常格式为@HORSECALL 坐骑名称 |
+| `HUMANHP` | 调整人物的HP或MP |
+| `HUMANMP` | 调整人物的HP或MP |
+| `INC 变量 数值` | 让变量自动加指定数值到变量，相当于程序中的x=x+n |
+| `KICK` | 踢人物下线 |
+| `KICKALLPLAY` | 踢除服务器所有人物 |
+| `KICKOFFLINE` | 踢除服务器所有挂机人物 |
+| `KILL` | 杀死人物 |
+| `KILLCALLMOB` | 把自己的宝宝杀死 |
+| `KILLHORSE` | 强制击杀玩家坐骑（马匹）的命令 |
+| `KILLMONEXPRATE` | 设置杀怪经验倍数(支持内功经验，经络经验倍数) |
+| `KILLSLAVE` | 将自己的宝宝全部杀死 |
+| `LOADVAR` | ②读取变量 LOADVAR HUMAN 变量名称 ..\QuestDiary\文件夹\存储文件.txt |
+| `MAKEHERO` | 调整游戏中的英雄角色 |
+| `MAP` | 查看当前所在地图相关信息 |
+| `MAPMOVE` | 地图名 坐标A 坐标B ;同上，只是指定了坐标 |
+| `MARRY` | 结婚脚本 |
+| `MASTER` | 收徒脚本 |
+| `MESSAGEBOX` | 屏幕中间弹窗 |
+| `MISSION` | 实现由脚本控制怪物攻城 |
+| `MOBFIREBURN` | 用于生成地图光环效果的命令 |
+| `MOBPLACE` | 刷新怪物名称 |
+| `MONCLEAR 地图名` | 清除这个地图上刷的怪物 |
+| `MONGEN 怪物名称 数量 时间` | 刷怪物，与刷怪角本用法相同 |
+| `MONGENEX` | 脚本命令刷怪 |
+| `MONRECALL` | 游戏中的地图传送命令 |
+| `MOV 变量 数值` | 给变量赋值 |
+| `MOVEMAPPLAY` | 把某个地图中的玩家全部移动到另外一个地图 |
+| `MOVEMOBTO` | 移动指定怪物到指定坐标位置 怪物名称 地图名 X坐标 Y坐标 |
+| `MOVR` | 扩展MOVR使用方法 MOVR 变量 数值1 数值2 |
+| `MUL` | 执行乘法操作 |
+| `OFFLINEPLAY 100` | 这100是说100分钟被踢下线！第一种离线命令 |
+| `OPENBIGDIALOGBOX` | 打开自定义NPC对话框 |
+| `OPENBOOKS 参数1 参数2 参数3 参数4` | 打开书页用 |
+| `OPENBOXS` | 开启宝箱的命令 |
+| `OPENITEMBOX` | 用于控制首饰盒功能的命令，主要用于触发首饰盒的开启、装备穿戴或脱下等操作 |
+| `OPENPLAYDRINK` | 是创建副将英雄 |
+| `OPENUSERMARKET` | 拍卖相关命令 |
+| `OPENYBDEAL` | 用于开通元宝交易功能的命令 |
+| `PARAM1` | 刷新怪物座标X |
+| `PARAM2` | 刷新怪物座标Y |
+| `PARAM3` | 刷新怪物数量 |
+| `PARAM4` | 刷新怪物范围 |
+| `PERCENT` | 主要用于显示进度条或百分比效果，常见于任务、杀怪等场景 |
+| `PKPOINT` | PK点数 |
+| `PKZONE` | 安全区是否为PK比赛区域(此功能未完成) |
+| `PLAYDICE (骰子数) @xxx` | 玩骰子,跳转到标签[@xxx] |
+| `PLAYDRINKMSG` | 成功提交烧酒触发该段 |
+| `POWERRATE` | 设置攻击力倍数 |
+| `QUERYBAGITEMS` | 增加刷新包裹物品命令：QUERYBAGITEMS X秒(默认10秒) //表示 X秒 内允许刷新包裹物品一次，可以做个空技能触发 |
+| `QUERYYBDEAL` | 某个脚本或宏中定义的自定义命令。这种情况下，你需要查看定义该命令的脚本或宏的代码来了解其功能 |
+| `QUERYYBSELL` | 查询正在出售的物品 |
+| `RANDSETDAILYQUEST` | 用于分配日常任务的脚本命令，主要功能是在指定范围内随机分配一个日常任务序号并存档 |
+| `REALIVE` | 将死亡的人物复活 |
+| `RECALLMAP` | 用于将指定地图的玩家召唤到当前地图的命令，格式为RECALLMAP 地图代码 |
+| `RECALLMOB` | 脚本召唤宝宝 |
+| `RECALLMOBEX` | 召唤指定位置宝宝 |
+| `RECALLPLAYER` | 将其他玩家召唤到自己身边的GM命令 |
+| `REGOTO` | 传送到对方身边 |
+| `RENEWLEVEL` | 人物转生控制 |
+| `REPAIRALL` | 该命令是检测命令，会自动扣除金币 |
+| `RESET [XXX] 7` | 意思是将从XXX开始的7个变量回复到原始值0 |
+| `RESTBONUSPOINT` | 调整人物属性点 |
+| `RESTRENEWLEVEL` | 清除人物转生数据(即人物转生后恢复到未转生状态) |
+| `SAVEHERO` | 寄存英雄 |
+| `SAVEVAR` | 保存自定义变量 SAVEVAR HUMAN 变量名称 ..\QuestDiary\文件夹\存储文件.txt |
+| `SENDCENTERMSG` | 发送屏幕中间大字体信息 |
+| `SENDCOLORMSG` | 发送带颜色信息的命令，格式为sendcolormsg 颜色代码 消息内容 |
+| `SENDEDITTOPMSG` | 用于发送聊天框顶部公告的脚本命令，格式为SendEditTopMsg 前景色 背景色 消息文字，支持自定义颜色和文字内容 |
+| `SENDMSG` | 发送文字信息 |
+| `SENDTOPMSG` | 专用登录器顶端滚动公告显示 |
+| `SET [n] 1` | 设置逻辑变量为真 |
+| `SETATTRIBUTE 数字(0-5)` | NPC命令完成属性赋予,0清除属性,1-5代表:金/木/水/火土 因为有5个属性,所以组对人数好控制在6个,比较平衡 |
+| `SETAUTOGETEXP` | 在线泡经验（直接得到经验） |
+| `SETICON` | 顶戴花翎功能 |
+| `SETITEMSLIGHT` | 设置装备发光 |
+| `SETITEMSTATE` | 设置装备绑定状态 |
+| `SETMEMBERLEVEL` | 调整人物会员等级 |
+| `SETMEMBERTYPE` | 调整人物会员类型 |
+| `SETMPAMODE` | 设置地图模式 |
+| `SETOFFLINEFUNC` | 用于触发角色下线功能的命令，通常在登陆脚本或功能脚本中使用，具体格式为SetOffLineFunc@下线触发 |
+| `SETOFFLINEPLAY` | 下面演示脚本您可以参考一下，SETOFFLINEPLAY ON 的意思是开放离线挂机，玩家只要在安全区下线就自动离线挂机 |
+| `SETOFFTIMER 定时器索引(0-255)` | 停止定时器 |
+| `SETONTIMER 定时器索引(0-255) 定时间隔（单位为秒）` | 定时器索引(0-255) 定时间隔（单位为秒） |
+| `SETOPEN` | 设置打开 |
+| `SETRANDOMNO` | 随机输入验证码 |
+| `SETRANKLEVELNAME` | 设置人物名称称号 M2-选项-参数设置-游戏选项(1)-开启称号。不能勾选，勾选了，这个脚本命令无效 |
+| `SETSCRIPTFLAG` | 装备名称自定义系统 |
+| `SETSECRETMODE` | 脚本用于修改传奇游戏中的浑水摸鱼模式。此脚本允许管理员对玩家在特定地图内的行为和外观进行设置 |
+| `SETSENDMSGFLAG` | 修改城主公告 |
+| `SETUNIT` | 设置单位 |
+| `SKILLLEVEL` | 脚本调整技能等级 |
+| `STARTTAKEGOLD` | 进行元宝转帐 |
+| `SUM 变量A 变量B` | 变量求和不要与int混淆,需要下面的组合语名才能实现 |
+| `TAGMAPINFO` | 记忆石相关 |
+| `TAGMAPMOVE` | 记忆石相关 |
+| `TAKE 物品 数量` | 同上，只是与上面相反，一个是给东西，一个是收回东西 |
+| `TAKECASTLEGOLD` | 用于从玩家背包中移除金币的命令 |
+| `TAKECHECKITEM` | 收取玩家指定物品的命令 |
+| `TAKEEX` | 把人物身上装备放入背包中 |
+| `TAKEOFFITEM` | 自动穿取装备 |
+| `TAKEONITEM` | 自动穿取装备 |
+| `TAKEW 物品` | 直接从身上回收物品 |
+| `THROUGHHUM` | 功能: 改变当前人物的穿人,穿怪模式 |
+| `THROWITEM` | 地图中自动出现物品 |
+| `TIMERECALL 数值` | 数值为分钟，定义进入某地的时间限制 |
+| `UNMARRY` | 离婚 |
+| `UNMASTER` | 出师 |
+| `UPGRADEITEM` | 控制装备升级的命令 |
+| `UPGRADEITEMEX` | 装备升级功能可以指定升级物品及属性，按指定机率得到结果 |
+| `USEBONUSPOINT` | 永久增加人物属性点(支持英雄) |
+| `VAR` | 声明变量 |

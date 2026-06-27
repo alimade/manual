@@ -1,0 +1,90 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "willow",
+  "name": "AlimadeM2",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "使用指南",
+        "hidden": true,
+        "groups": [
+          {
+            "group": "引擎介绍",
+            "pages": [
+              "index"
+            ]
+          },
+          {
+            "group": "引擎功能",
+            "pages": [
+              {
+                "group": "引擎脚本",
+                "expanded": true,
+                "pages": [
+                  "m2/scripts/readme",
+                  "m2/scripts/conditions",
+                  "m2/scripts/actions"
+                ]
+              },
+              {
+                "group": "技能魔法",
+                "expanded": true,
+                "pages": [
+                  "m2/magics/magicdb",
+                  "m2/magics/audio",
+                  "m2/magics/icon"
+                ]
+              },
+              {
+                "group": "通用示例",
+                "expanded": true,
+                "pages": [
+                  "m2/examples/autopickup",
+                  "m2/examples/speedcontrol"
+                ]
+              },
+              {
+                "group": "人形怪/分身",
+                "pages": [
+                  "intelligence",
+                  "file"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "万能登陆器2024",
+            "pages": [
+              "dlq2024/index",
+              "dlq2024/bigbag",
+              "dlq2024/microsrv",
+              "dlq2024/custom-ui",
+              "dlq2024/npc",
+              "dlq2024/skin"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
+  "navbar": {
+
+  },
+  "contextual": {
+    "options": [
+
+   ]
+  },
+  "footer": {
+
+  }
+}

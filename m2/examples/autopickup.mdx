@@ -1,0 +1,39 @@
+---
+title: "自动拾取"
+description: "使用引擎的自动拾取功能"
+---
+
+在 QManage.txt 或 QFunction.txt 中进行执行下述的脚本开启自动拾取
+
+**开启自动拾取**
+
+OPENFULLPICKUP 1 12 3600
+
+- 参数一 ：开关
+- 参数二 ：范围
+- 参数三 ：生效时间(分钟)
+
+示例一
+
+```as
+[@main]
+#IF
+#ACT
+OPENFULLPICKUP 1 12 3600
+SendMsg 6 该玩家已开启拾取12格内的物品
+```
+
+**关闭自动拾取**
+
+CLOSEFULLPICKUP 0
+
+- 参数一 ：
+  - 0 - 关闭所有模式
+  - 1 - 关闭永久模式
+  - 2 - 关闭临时模式
+
+**自动拾取过滤**
+
+注意：如果开启了依然无法拾取还需要设置允许自动拾取的物品清单.
+
+![Image](/images/image.png)
