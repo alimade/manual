@@ -3,7 +3,9 @@ title: "封挂设置"
 description: "引擎内置封速，完美封杀各种秒杀挂，全部免费使用"
 ---
 
-# 简单使用
+# 通用控制
+
+## 简单使用
 
 <img
   src="/images/image-4.png"
@@ -22,7 +24,7 @@ description: "引擎内置封速，完美封杀各种秒杀挂，全部免费使
   一般使用 “基本” 封速就可以了，“外挂” 选项中一般不需要启用
 </Note>
 
-# 速度监控
+## 速度监控
 
 <img
   src="/images/image-8.png"
@@ -32,7 +34,7 @@ description: "引擎内置封速，完美封杀各种秒杀挂，全部免费使
 
 当 M2Server 的游戏速度保存之后会同步至游戏网关(RunGate)，如果有玩家在线就可以查看相关的速度信息，这里查看的玩家速度信息都是实时的数据，如果间隔到 0 了说明玩家每刀都有效果，开了多倍之后数据量会非常庞大可能会导致 M2Server 处理不过来产生的其他玩家原地 “幻刀” 问题，注意合理设置。
 
-# 脚本设置
+## 脚本设置
 
 ```txt
 [@IllegalHandle]
@@ -73,3 +75,152 @@ ReturnSkip
 - SendMsg - 发送消息，注意这里和 M2Server 版本中的使用有点不一样
 
 <Note>如果支持的不够请在 KOOK 中提需求，合理的话我们会慎重考虑进行扩展.</Note>
+
+# 地图控制
+
+地图控制用于按地图覆盖全局速度，策略是“全局基线 + 地图 ini 按键覆盖”。
+
+## 地图写法
+
+在 `Envir/MapInfo.txt` 的目标地图行增加：
+
+```txt
+[D717 霸王教主之家] FIGHT NORECONNECT(MAPMOVE) NOPOSITIONMOVE SPEED(沙巴克皇宫.ini)
+```
+
+## 文件路径
+
+`SPEED(沙巴克皇宫.ini)` 对应文件：
+
+```txt
+Envir/Speed_Def/沙巴克皇宫.ini
+```
+
+## 可覆盖 KEY（完整）
+
+`[GameSettingSpeedBasic]`
+
+1. `IntervalEnabled`
+2. `IntervalControlMode`
+3. `IntervalHit`
+4. `IntervalSpell`
+5. `IntervalRun`
+6. `IntervalWalk`
+7. `IntervalTurn`
+8. `IntervalButch`
+9. `MultipleEnabled`
+10. `MultipleControlMode`
+11. `MultipleHit`
+12. `MultipleSpell`
+13. `MultipleRun`
+14. `MultipleWalk`
+15. `MultipleTurn`
+16. `MultipleButch`
+17. `IntervalCombinationEnabled`
+18. `IntervalCombinationGeneral`
+19. `IntervalCombinationLongHitAndRunEnabled`
+20. `IntervalCombinationLongHitAndRun`
+21. `IntervalCombinationHitAndRunEnabled`
+22. `IntervalCombinationHitAndRun`
+23. `IntervalCombinationHitAndWalkEnabled`
+24. `IntervalCombinationHitAndWalk`
+25. `IntervalCombinationSpellAndRunEnabled`
+26. `IntervalCombinationSpellAndRun`
+
+`[GameSettingSpeedWG]`
+
+1. `Enabled`
+2. `HitCheckTime`
+3. `HitCheckCount`
+4. `HitCheckMaxCount`
+5. `HitDebugEnabled`
+6. `HitQFunctionEnabled`
+7. `HitControlMode`
+8. `SpellCheckTime`
+9. `SpellCheckCount`
+10. `SpellCheckMaxCount`
+11. `SpellDebugEnabled`
+12. `SpellQFunctionEnabled`
+13. `SpellControlMode`
+14. `WalkCheckTime`
+15. `WalkCheckCount`
+16. `WalkCheckMaxCount`
+17. `WalkDebugEnabled`
+18. `WalkQFunctionEnabled`
+19. `WalkControlMode`
+20. `RunCheckTime`
+21. `RunCheckCount`
+22. `RunCheckMaxCount`
+23. `RunDebugEnabled`
+24. `RunQFunctionEnabled`
+25. `RunControlMode`
+
+## 地图 ini 示例
+
+```ini
+[GameSettingSpeedBasic]
+IntervalEnabled=True
+IntervalControlMode=0
+IntervalHit=380
+IntervalSpell=480
+IntervalRun=80
+IntervalWalk=120
+IntervalTurn=100
+IntervalButch=250
+MultipleEnabled=False
+MultipleControlMode=0
+MultipleHit=1
+MultipleSpell=1
+MultipleRun=1
+MultipleWalk=1
+MultipleTurn=1
+MultipleButch=1
+IntervalCombinationEnabled=True
+IntervalCombinationGeneral=60
+IntervalCombinationLongHitAndRunEnabled=True
+IntervalCombinationLongHitAndRun=100
+IntervalCombinationHitAndRunEnabled=True
+IntervalCombinationHitAndRun=100
+IntervalCombinationHitAndWalkEnabled=True
+IntervalCombinationHitAndWalk=100
+IntervalCombinationSpellAndRunEnabled=True
+IntervalCombinationSpellAndRun=100
+
+[GameSettingSpeedWG]
+Enabled=True
+HitCheckTime=400
+HitCheckCount=1
+HitCheckMaxCount=5
+HitDebugEnabled=False
+HitQFunctionEnabled=False
+HitControlMode=0
+SpellCheckTime=500
+SpellCheckCount=1
+SpellCheckMaxCount=5
+SpellDebugEnabled=False
+SpellQFunctionEnabled=False
+SpellControlMode=0
+WalkCheckTime=120
+WalkCheckCount=1
+WalkCheckMaxCount=6
+WalkDebugEnabled=False
+WalkQFunctionEnabled=False
+WalkControlMode=0
+RunCheckTime=80
+RunCheckCount=1
+RunCheckMaxCount=6
+RunDebugEnabled=False
+RunQFunctionEnabled=False
+RunControlMode=0
+```
+
+## 生效时机
+
+1. 玩家登录后下发当前地图速度配置。
+2. 同服切图成功后实时重发速度配置。
+3. 地图未配置 `SPEED` 时，完全使用全局速度。
+4. 速度文件缺失或解析失败时，告警并回退全局，不阻断进图。
+
+## 当前不覆盖项
+
+地图控制仅覆盖布尔/数值字段，不覆盖 `*ControlScript` 脚本字段。
