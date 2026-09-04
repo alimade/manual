@@ -29,7 +29,8 @@
                   "m2/scripts/readme",
                   "m2/scripts/conditions",
                   "m2/scripts/actions",
-                  "m2/scripts/elements"
+                  "m2/scripts/elements",
+                  "m2/scripts/suit-config"
                 ]
               },
               {
