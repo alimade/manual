@@ -69,6 +69,12 @@
               "dlq2024/npc",
               "dlq2024/skin"
             ]
+          },
+          {
+            "group": "游戏控制器",
+            "pages": [
+              "gamecenter/monitor"
+            ]
           }
         ]
       }
